@@ -1,4 +1,4 @@
-import { dayMaker } from './../src/js/scripts.js';
+import { dayMaker, validDate } from './../src/js/scripts.js';
 
 describe('dayMaker', () => {
   
@@ -7,3 +7,11 @@ describe('dayMaker', () => {
     expect(dayMaker(date)).toEqual("Thursday")
   });
 });
+
+describe ('validDate', () => {
+  
+  test('should return error message if input is not a valid date', () => {
+    let date = new Date("pizza and tacos");
+    expect(validDate(date)).toEqual("Please enter a valid date.")
+  })
+})
