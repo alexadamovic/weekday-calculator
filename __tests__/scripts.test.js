@@ -1,4 +1,4 @@
-import { dayMaker, validDate } from './../src/js/scripts.js';
+import { dayMaker, monthChecker } from './../src/js/scripts.js';
 
 describe('dayMaker', () => {
   
@@ -8,10 +8,14 @@ describe('dayMaker', () => {
   });
 });
 
-describe ('validDate', () => {
+describe ('monthChecker', () => {
   
-  test('should return error message if input is not a valid date', () => {
-    let date = new Date("pizza and tacos");
-    expect(validDate(date)).toEqual("Please enter a valid date.")
-  })
-})
+  test('should return error message if input is not a valid month', () => {
+    let month = "pizza and tacos";
+    expect(monthChecker(month)).toEqual("Please enter a valid month.")
+  });
+  test('should return month if valid month is entered', () => {
+    let month = "January";
+    expect(monthChecker(month)).toEqual("January")
+  });
+});
